@@ -20,12 +20,13 @@ import SideScroller from "@/components/SideScroller";
 export default function Home() {
   const [place, setPlace] = useAtom(placeAtom);
   const [loading, setLoading] = useAtom(loadingCityAtom);
+  console.log(process.env.API_KEY);
 
   const { isLoading, data, error, refetch } = useQuery<WeatherData>(
     "repoData",
     async () => {
       const { data } = await axios.get(
-        `https://api.openweathermap.org/data/2.5/forecast?q=${place}&appid=${process.env.API_KEY}&cnt=56`
+        `https://api.openweathermap.org/data/2.5/forecast?q=${place}&appid=${process.env.NEXT_PUBLIC_API_KEY}&cnt=56`
       );
       return data;
     },
