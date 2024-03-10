@@ -26,7 +26,7 @@ const Navbar = ({ location }: Props) => {
     if (entry.length >= 3) {
       try {
         const response = await axios.get(
-          `https://api.openweathermap.org/data/2.5/find?q=${entry}&appid=b09edd46ac37d276b2cb1d5082e2ed95`
+          `https://api.openweathermap.org/data/2.5/find?q=${entry}&appid=${process.env.API_KEY}`
         );
         const suggestions = response.data.list.map((city: any) => city.name);
         console.log(suggestions);
@@ -72,7 +72,7 @@ const Navbar = ({ location }: Props) => {
         try {
           setLoading(true);
           const response = await axios.get(
-            `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=b09edd46ac37d276b2cb1d5082e2ed95`
+            `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${process.env.API_KEY}`
           );
           setTimeout(() => {
             setLoading(false);

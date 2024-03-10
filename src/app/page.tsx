@@ -25,7 +25,7 @@ export default function Home() {
     "repoData",
     async () => {
       const { data } = await axios.get(
-        `https://api.openweathermap.org/data/2.5/forecast?q=${place}&appid=b09edd46ac37d276b2cb1d5082e2ed95&cnt=56`
+        `https://api.openweathermap.org/data/2.5/forecast?q=${place}&appid=${process.env.API_KEY}&cnt=56`
       );
       return data;
     },
