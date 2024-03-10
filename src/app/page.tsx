@@ -20,7 +20,6 @@ import SideScroller from "@/components/SideScroller";
 export default function Home() {
   const [place, setPlace] = useAtom(placeAtom);
   const [loading, setLoading] = useAtom(loadingCityAtom);
-  console.log(process.env.API_KEY);
 
   const { isLoading, data, error, refetch } = useQuery<WeatherData>(
     "repoData",
