@@ -87,7 +87,7 @@ const Navbar = ({ location }: Props) => {
 
   return (
     <nav className="shadow-sm sticky top-0 left-0 z-50 bg-white">
-      <div className="h-[80px] w-full flex justify-between items-center max-w-7xl px-3 mx-auto">
+      <div className="h-[80px] w-full flex flex-col justify-between items-center max-w-7xl px-1 md:px-3 mx-auto my-3 md:my-0   md:flex-row">
         <div
           className="flex items-center justify-center gap-2 cursor-pointer"
           onClick={() => {
@@ -98,10 +98,10 @@ const Navbar = ({ location }: Props) => {
           <h2 className="text-gray-500 text-3xl">Weather</h2>
           <MdWbSunny className="text-3xl mt-1 text-yellow-300" />
         </div>
-        <section id="right-side" className="flex gap-2 items-center">
+        <section id="right-side" className="flex items-center gap-1">
           <MdMyLocation
             onClick={handleCurrentLocation}
-            className="text-2xl text-gray-600 opacity-90 hover:opacity-100 cursor-pointer"
+            className="text-xl text-gray-600 opacity-90 hover:opacity-100 cursor-pointer"
           />
           {/* <MdOutlineLocationOn className="text-3xl text-gray-600 opacity-90" /> */}
           <p className="text-slate-900/80 text-sm">| {location}</p>
