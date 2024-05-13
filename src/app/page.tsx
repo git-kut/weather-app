@@ -133,22 +133,24 @@ export default function Home() {
                     </div>
                   </div>
                   {/* hourly weather */}
-                  <SideScroller>
-                    <div className="flex gap-10 sm:gap-16 overflow-x-auto w-full justify-between pr-3 py-3">
-                      {data?.list.map((weather, index) => (
-                        <div
-                          key={index}
-                          className="flex flex-col justify-between gap-2 items-center text-xs font-semibold"
-                        >
-                          <p className="whitespace-nowrap">
-                            {format(parseISO(weather.dt_txt || ""), "h:mm a")}
-                          </p>
-                          <WeatherIcon iconName={weather.weather[0].icon} />
-                          <p>{kelvinToCelsius(weather.main.temp || 0)}°</p>
-                        </div>
-                      ))}
-                    </div>
-                  </SideScroller>
+                  <div className="overflow-x-auto w-full">
+                    <SideScroller>
+                      <div className="flex gap-10 sm:gap-16 justify-between pr-3 py-3">
+                        {data?.list.map((weather, index) => (
+                          <div
+                            key={index}
+                            className="flex flex-col justify-between gap-2 items-center text-xs font-semibold"
+                          >
+                            <p className="whitespace-nowrap">
+                              {format(parseISO(weather.dt_txt || ""), "h:mm a")}
+                            </p>
+                            <WeatherIcon iconName={weather.weather[0].icon} />
+                            <p>{kelvinToCelsius(weather.main.temp || 0)}°</p>
+                          </div>
+                        ))}
+                      </div>
+                    </SideScroller>
+                  </div>
                 </Container>
               </div>
               {/*  */}
